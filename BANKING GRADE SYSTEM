@@ -1,0 +1,33 @@
+ # include<stdio.h>
+
+int main() {
+
+   int Grade_of_Bank;
+
+   printf("enter grade for bank(out of 1-10):");
+
+   scanf("%d",&Grade_of_Bank);
+
+   printf("we have entered %d grade of bank\n",Grade_of_Bank);
+
+   if (Grade_of_Bank>7){
+
+       printf("Grade A");
+
+       
+
+   }
+
+     else if (Grade_of_Bank>5){
+
+         printf("Grade B");
+
+     }
+
+     Else if(Grade_of_bank<3){
+
+         printf(“Grade C”);
+
+     }
+
+}
