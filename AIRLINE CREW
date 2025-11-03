@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Crew {
+    int crew_id;
+    char name[50];
+    char work[50];
+    float salary;
+};
+
+int main() {
+    struct Crew c[50], temp;
+    int n, i, j;
+
+    printf("Enter number of crew members: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++) {
+        printf("\nEnter details for Crew %d\n", i + 1);
+        printf("Crew ID: ");
+        scanf("%d", &c[i].crew_id);
+        printf("Name: ");
+        scanf("%s", c[i].name);
+        printf("Work: ");
+        scanf("%s", c[i].work);
+        printf("Salary: ");
+        scanf("%f", &c[i].salary);
+    }
+
+    
+    for(i = 0; i < n - 1; i++) {
+        for(j = i + 1; j < n; j++) {
+            if(c[i].salary < c[j].salary || 
+               (c[i].salary == c[j].salary && strcmp(c[i].name, c[j].name) > 0)) {
+                temp = c[i];
+                c[i] = c[j];
+                c[j] = temp;
+            }
+        }
+    }
+
+    printf("\n--- Airline Crew Details (Sorted by Salary) ---\n");
+    printf("%-10s %-15s %-15s %-10s\n", "Crew ID", "Name", "Work", "Salary");
+
+    for(i = 0; i < n; i++) {
+        printf("%-10d %-15s %-15s %-10.2f\n", c[i].crew_id, c[i].name, c[i].work, c[i].salary);
+    }
+
+    return 0;
+}
