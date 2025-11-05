@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    char name[20];
+    float price, total = 0;
+
+    printf("=== D-MART BILLING SYSTEM ===\n");
+    printf("Enter number of items: ");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; i++) {
+        printf("\nEnter item %d name: ", i);
+        scanf("%s", name);
+        printf("Enter price: ");
+        scanf("%f", &price);
+        total += price;
+    }
+
+    printf("\nTotal Bill Amount = %.2f\n", total);
+    printf("Thank you for shopping at D-Mart!\n");
+
+    return 0;
+}
