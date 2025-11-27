@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_CREW 100
+#define MAX_STRING 50
+struct CrewMember {
+    int id;
+    char name[MAX_STRING];
+    char role[MAX_STRING];
+    char contact_number[MAX_STRING];
+};
+struct CrewMember directory[MAX_CREW];
+int crew_count = 0; 
+void add_crew_member() {
+    if (crew_count < MAX_CREW) {
+        printf("\nEntering new crew member details:\n");
+        printf("Enter ID (integer): ");
+        scanf("%d", &directory[crew_count].id);
+        printf("Enter Name (one word): ");
+        scanf("%s", directory[crew_count].name);
+        printf("Enter Role (e.g.,cabin crew, Pilot, Attendant): ");
+        scanf("%s", directory[crew_count].role);
+        printf("Enter Fictional Contact Number: ");
+        scanf("%s", directory[crew_count].contact_number);
+        crew_count++;
+        printf("\nCrew member record added successfully!\n");
+    } else {
+        printf("\nDirectory is full. Cannot add more members.\n");
+    }
+}
+void view_crew_members() {
+    if (crew_count > 0) {
+        
+        printf("ID   Name | Role| Contact Number\n");
+        printf("--\n");
+        for (int i = 0; i < crew_count; i++) {
+            printf("%-4d | %-10s | %-12s | %s\n",
+                   directory[i].id,
+                   directory[i].name,
+                   directory[i].role,
+                   directory[i].contact_number);
+        }
+        printf("\n");
+    } else {
+        printf("\nDirectory is currently empty.\n");
+    }
+}
+int main() {
+    int choice;
+    while (1) {
+        printf("\n** Directory Management Menu **\n");
+        printf("1. Add a new crew member record\n");
+        printf("2. View all crew members\n");
+        printf("3. Exit program\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                add_crew_member();
+                break;
+            case 2:
+                view_crew_members();
+                break;
+            case 3:
+                printf("Exiting program. Goodbye!\n");
+                return 0;
+            default:
+                printf("Invalid choice. Please select 1, 2, or 3.\n");
+        }
+    }
+    return 0;
+}
