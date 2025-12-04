@@ -1,0 +1,24 @@
+
+#include <stdio.h>
+
+int main() {
+    char s1[100]; 
+    char s2[100]; 
+    int i;
+
+    printf("Enter the string 1: ");
+    scanf("%99s", s1); 
+
+    for (i = 0; s1[i] != '\0'; ++i);
+
+    printf("Length of the string1: %d\n", i);
+
+    printf("Enter the string2: ");
+    scanf("%99s", s2); 
+
+    printf("\nFirst String: %s\n", s1);
+    printf("Second String: %s\n", s2);
+    printf("Both strings connected: %s %s\n", s1, s2); 
+
+    return 0;
+}
